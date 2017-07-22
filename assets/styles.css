@@ -1,0 +1,25 @@
+td.label
+{
+    width: 10em;
+}
+
+td.field
+{
+    width: 30em;
+}
+
+td.field input[type=text]
+{
+    width: 100%;
+}
+
+td.field input[type=submit]
+{
+    width: 10em;
+}
+
+pre
+{
+    background-color: #e0e0e0;
+    padding: 0.5em
+}

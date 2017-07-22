@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>LedgerHop</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+  <h1>Ripple Ping</h1>
+  <hr />
+
+  <form action="/ripple/ping" method="post">
+    <table>
+      <tr>
+        <td class="label">ID</td>
+        <td class="field"><input type="text" name="id" /></td>
+      </tr>
+      <tr>
+        <td class="label"></td>
+        <td class="field"><input type="submit" name="submit" /></td>
+      </tr>
+    </table>
+  </form>
+
+  <hr />
+
+  <div>
+    Request:
+    <pre>{{.Req}}</pre>
+  </div>
+  <div>
+    Response:
+    <pre>{{.Res}}</pre>
+  </div>
+
+</body>
+
+</html>
