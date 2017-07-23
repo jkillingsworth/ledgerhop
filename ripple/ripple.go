@@ -44,7 +44,7 @@ func formatJSON(b []byte) string {
 	return string(buffer.Bytes())
 }
 
-// Handle executes a ripple command
+// Handle executes a ripple command.
 func Handle(w http.ResponseWriter, r *http.Request, getCommand func(r *http.Request) interface{}) interface{} {
 
 	var req string
@@ -73,7 +73,7 @@ func Handle(w http.ResponseWriter, r *http.Request, getCommand func(r *http.Requ
 	}
 }
 
-// GetCommandPing creates a "ping" command
+// GetCommandPing creates a "ping" command.
 func GetCommandPing(r *http.Request) interface{} {
 	return struct {
 		ID      string `json:"id"`
@@ -84,7 +84,7 @@ func GetCommandPing(r *http.Request) interface{} {
 	}
 }
 
-// GetCommandAccountInfo creates an "account_info" command
+// GetCommandAccountInfo creates an "account_info" command.
 func GetCommandAccountInfo(r *http.Request) interface{} {
 	return struct {
 		ID      string `json:"id"`
@@ -99,7 +99,7 @@ func GetCommandAccountInfo(r *http.Request) interface{} {
 	}
 }
 
-// GetCommandAccountLines creates an "account_lines" command
+// GetCommandAccountLines creates an "account_lines" command.
 func GetCommandAccountLines(r *http.Request) interface{} {
 	return struct {
 		ID      string `json:"id"`
