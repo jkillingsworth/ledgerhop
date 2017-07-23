@@ -3,20 +3,30 @@ form table
     border-collapse: collapse;
 }
 
-form label
+form td *
 {
-    float: left;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+form td.label
+{
     width: 10em;
 }
 
-form input:read-only
-{
-    color: #808080;
-}
-
-form input[type=text]
+form td.field
 {
     width: 30em;
+}
+
+form label
+{
+    float: left;
+}
+
+form input[readonly]
+{
+    color: #808080;
 }
 
 form input[type=submit]
