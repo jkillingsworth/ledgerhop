@@ -1,8 +1,6 @@
 package main
 
 import (
-	"bytes"
-	"encoding/json"
 	"fmt"
 	"html/template"
 	"io"
@@ -35,109 +33,23 @@ func handleStyles(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleIndex(w http.ResponseWriter, r *http.Request) {
-
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
-		return
+	} else {
+		executeTemplate(w, "index.html", nil)
 	}
-
-	executeTemplate(w, "index.html", nil)
 }
 
 func handleRipplePing(w http.ResponseWriter, r *http.Request) {
-
-	var req string
-	var res string
-
-	format := func(b []byte) string {
-		var buffer bytes.Buffer
-		e := json.Indent(&buffer, b, "", "  ")
-		if e != nil {
-			log.Fatal(e)
-		}
-		return string(buffer.Bytes())
-	}
-
-	if r.Method == "POST" {
-
-		r.ParseForm()
-
-		command := struct {
-			ID      string `json:"id"`
-			Command string `json:"command"`
-		}{
-			ID:      r.Form.Get("id"),
-			Command: r.Form.Get("command"),
-		}
-
-		bytes, e := json.Marshal(command)
-		if e != nil {
-			log.Fatal(e)
-		}
-
-		req = format(bytes)
-		res = format(ripple.Execute(bytes))
-	}
-
-	data := struct {
-		Req string
-		Res string
-	}{
-		req,
-		res,
-	}
-
-	executeTemplate(w, "ripple/ping.html", data)
+	name := "ripple/ping.html"
+	data := ripple.Handle(w, r, ripple.GetCommandPing)
+	executeTemplate(w, name, data)
 }
 
 func handleRippleAccountLines(w http.ResponseWriter, r *http.Request) {
-
-	var req string
-	var res string
-
-	format := func(b []byte) string {
-		var buffer bytes.Buffer
-		e := json.Indent(&buffer, b, "", "  ")
-		if e != nil {
-			log.Fatal(e)
-		}
-		return string(buffer.Bytes())
-	}
-
-	if r.Method == "POST" {
-
-		r.ParseForm()
-
-		command := struct {
-			ID      string `json:"id"`
-			Command string `json:"command"`
-			Ledger  string `json:"ledger_index"`
-			Account string `json:"account"`
-		}{
-			ID:      r.Form.Get("id"),
-			Command: r.Form.Get("command"),
-			Ledger:  r.Form.Get("ledger"),
-			Account: r.Form.Get("account"),
-		}
-
-		bytes, e := json.Marshal(command)
-		if e != nil {
-			log.Fatal(e)
-		}
-
-		req = format(bytes)
-		res = format(ripple.Execute(bytes))
-	}
-
-	data := struct {
-		Req string
-		Res string
-	}{
-		req,
-		res,
-	}
-
-	executeTemplate(w, "ripple/account-lines.html", data)
+	name := "ripple/account-lines.html"
+	data := ripple.Handle(w, r, ripple.GetCommandAccountLines)
+	executeTemplate(w, name, data)
 }
 
 func init() {
