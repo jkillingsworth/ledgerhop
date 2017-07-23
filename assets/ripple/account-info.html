@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>LedgerHop</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+  <h1>Ripple Account Info</h1>
+  <hr>
+
+  <form action="/ripple/account-info" method="post">
+    <table>
+      <tr>
+        <td class="label"><label for="id">ID</label></td>
+        <td class="field"><input type="text" name="id" id="id"></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="command">Command</label></td>
+        <td class="field"><input type="text" name="command" id="command" value="account_info" readonly></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="ledger">Ledger</label></td>
+        <td class="field">
+          <select name="ledger" id="ledger">
+            <option value="validated" selected>validated</option>
+            <option value="closed">closed</option>
+            <option value="current">current</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="label"><label for="account">Account</label></td>
+        <td class="field"><input type="text" name="account" id="account"></td>
+      </tr>
+      <tr>
+        <td class="label"></td>
+        <td class="field"><input type="submit" name="submit"></td>
+      </tr>
+    </table>
+  </form>
+
+  <hr>
+
+  <div>
+    Request:
+    <pre>{{.Req}}</pre>
+  </div>
+  <div>
+    Response:
+    <pre>{{.Res}}</pre>
+  </div>
+
+</body>
+
+</html>

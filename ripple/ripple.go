@@ -84,6 +84,21 @@ func GetCommandPing(r *http.Request) interface{} {
 	}
 }
 
+// GetCommandAccountInfo creates an "account_info" command
+func GetCommandAccountInfo(r *http.Request) interface{} {
+	return struct {
+		ID      string `json:"id"`
+		Command string `json:"command"`
+		Ledger  string `json:"ledger_index"`
+		Account string `json:"account"`
+	}{
+		ID:      r.Form.Get("id"),
+		Command: r.Form.Get("command"),
+		Ledger:  r.Form.Get("ledger"),
+		Account: r.Form.Get("account"),
+	}
+}
+
 // GetCommandAccountLines creates an "account_lines" command
 func GetCommandAccountLines(r *http.Request) interface{} {
 	return struct {

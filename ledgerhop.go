@@ -46,6 +46,12 @@ func handleRipplePing(w http.ResponseWriter, r *http.Request) {
 	executeTemplate(w, name, data)
 }
 
+func handleRippleAccountInfo(w http.ResponseWriter, r *http.Request) {
+	name := "ripple/account-info.html"
+	data := ripple.Handle(w, r, ripple.GetCommandAccountInfo)
+	executeTemplate(w, name, data)
+}
+
 func handleRippleAccountLines(w http.ResponseWriter, r *http.Request) {
 	name := "ripple/account-lines.html"
 	data := ripple.Handle(w, r, ripple.GetCommandAccountLines)
@@ -55,6 +61,7 @@ func handleRippleAccountLines(w http.ResponseWriter, r *http.Request) {
 func init() {
 	registerTemplate(templates, "index.html")
 	registerTemplate(templates, "ripple/ping.html")
+	registerTemplate(templates, "ripple/account-info.html")
 	registerTemplate(templates, "ripple/account-lines.html")
 }
 
@@ -62,6 +69,7 @@ func main() {
 	http.HandleFunc("/styles.css", handleStyles)
 	http.HandleFunc("/", handleIndex)
 	http.HandleFunc("/ripple/ping", handleRipplePing)
+	http.HandleFunc("/ripple/account-info", handleRippleAccountInfo)
 	http.HandleFunc("/ripple/account-lines", handleRippleAccountLines)
 	http.ListenAndServe(":8080", nil)
 }
