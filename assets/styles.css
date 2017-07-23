@@ -1,19 +1,25 @@
-td.label
+form table
 {
+    border-collapse: collapse;
+}
+
+form label
+{
+    float: left;
     width: 10em;
 }
 
-td.field
+form input:read-only
+{
+    color: #808080;
+}
+
+form input[type=text]
 {
     width: 30em;
 }
 
-td.field input[type=text]
-{
-    width: 100%;
-}
-
-td.field input[type=submit]
+form input[type=submit]
 {
     width: 10em;
 }

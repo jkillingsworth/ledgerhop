@@ -67,7 +67,7 @@ func handleRipplePing(w http.ResponseWriter, r *http.Request) {
 			Command string `json:"command"`
 		}{
 			ID:      r.Form.Get("id"),
-			Command: "ping",
+			Command: r.Form.Get("command"),
 		}
 
 		bytes, e := json.Marshal(command)

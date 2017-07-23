@@ -10,22 +10,26 @@
 <body>
 
   <h1>Ripple Ping</h1>
-  <hr />
+  <hr>
 
   <form action="/ripple/ping" method="post">
     <table>
       <tr>
-        <td class="label">ID</td>
-        <td class="field"><input type="text" name="id" /></td>
+        <td><label for="id">ID</label></td>
+        <td><input type="text" name="id" id="id"></td>
       </tr>
       <tr>
-        <td class="label"></td>
-        <td class="field"><input type="submit" name="submit" /></td>
+        <td><label for="command">Command</label></td>
+        <td><input type="text" name="command" id="command" value="ping" readonly></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" name="submit"></td>
       </tr>
     </table>
   </form>
 
-  <hr />
+  <hr>
 
   <div>
     Request:
