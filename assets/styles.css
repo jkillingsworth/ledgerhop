@@ -14,19 +14,25 @@ form td.label
     width: 10em;
 }
 
+form td.label label
+{
+    float: left;
+}
+
 form td.field
 {
     width: 30em;
 }
 
-form label
-{
-    float: left;
-}
-
 form input[readonly]
 {
     color: #808080;
+}
+
+form input[type=checkbox]
+{
+    float: left;
+    width: auto;
 }
 
 form input[type=submit]

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>LedgerHop</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+  <h1>Ripple Submit Trust Set</h1>
+  <hr>
+
+  <form action="/ripple/submit-trust-set" method="post">
+    <table>
+      <tr>
+        <td class="label"><label for="id">ID</label></td>
+        <td class="field"><input type="text" name="id" id="id"></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="command">Command</label></td>
+        <td class="field"><input type="text" name="command" id="command" value="submit" readonly></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="transactionType">Transaction type</label></td>
+        <td class="field"><input type="text" name="transactionType" id="transactionType" value="20" readonly></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="account">Account</label></td>
+        <td class="field"><input type="text" name="account" id="account"></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="secretKey">Secret key</label></td>
+        <td class="field"><input type="password" name="secretKey" id="secretKey"></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="fee">Fee</label></td>
+        <td class="field"><input type="number" name="fee" id="fee"></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="sequence">Sequence</label></td>
+        <td class="field"><input type="number" name="sequence" id="sequence"></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="lastLedgerSequence">Last ledger sequence</label></td>
+        <td class="field"><input type="number" name="lastLedgerSequence" id="lastLedgerSequence"></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="flagFullyCanonicalSig">Flag</label></td>
+        <td class="field"><input type="checkbox" value="0x80000000" name="flagFullyCanonicalSig" id="flagFullyCanonicalSig" checked>
+          <label for="flagFullyCanonicalSig">[0x80000000] FullyCanonicalSig</label>
+        </td>
+      </tr>
+      <tr>
+        <td class="label"><label for="flagSetAuth">Flag</label></td>
+        <td class="field"><input type="checkbox" value="0x00010000" name="flagSetAuth" id="flagSetAuth">
+          <label for="flagSetAuth">[0x00010000] SetAuth</label>
+        </td>
+      </tr>
+      <tr>
+        <td class="label"><label for="flagSetNoRipple">Flag</label></td>
+        <td class="field"><input type="checkbox" value="0x00020000" name="flagSetNoRipple" id="flagSetNoRipple">
+          <label for="flagSetNoRipple">[0x00020000] SetNoRipple</label>
+        </td>
+      </tr>
+      <tr>
+        <td class="label"><label for="flagClearNoRipple">Flag</label></td>
+        <td class="field"><input type="checkbox" value="0x00040000" name="flagClearNoRipple" id="flagClearNoRipple">
+          <label for="flagClearNoRipple">[0x00040000] SetNoRipple</label>
+        </td>
+      </tr>
+      <tr>
+        <td class="label"><label for="flagSetFreeze">Flag</label></td>
+        <td class="field"><input type="checkbox" value="0x00100000" name="flagSetFreeze" id="flagSetFreeze">
+          <label for="flagSetFreeze">[0x00100000] SetFreeze</label>
+        </td>
+      </tr>
+      <tr>
+        <td class="label"><label for="flagClearFreeze">Flag</label></td>
+        <td class="field"><input type="checkbox" value="0x00200000" name="flagClearFreeze" id="flagClearFreeze">
+          <label for="flagClearFreeze">[0x00200000] ClearFreeze</label>
+        </td>
+      </tr>
+      <tr>
+        <td class="label"><label for="limitAmountCurrency">Limit amount currency</label></td>
+        <td class="field"><input type="text" name="limitAmountCurrency" id="limitAmountCurrency"></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="limitAmountIssuer">Limit amount issuer</label></td>
+        <td class="field"><input type="text" name="limitAmountIssuer" id="limitAmountIssuer"></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="limitAmountValue">Limit amount value</label></td>
+        <td class="field"><input type="text" name="limitAmountValue" id="limitAmountValue"></td>
+      </tr>
+      <tr>
+        <td class="label"></td>
+        <td class="field"><input type="submit" name="submit"></td>
+      </tr>
+    </table>
+  </form>
+
+  <hr>
+
+  <div>
+    Request:
+    <pre>{{.Req}}</pre>
+  </div>
+  <div>
+    Response:
+    <pre>{{.Res}}</pre>
+  </div>
+
+</body>
+
+</html>

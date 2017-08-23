@@ -58,11 +58,18 @@ func handleRippleAccountLines(w http.ResponseWriter, r *http.Request) {
 	executeTemplate(w, name, data)
 }
 
+func handleRippleSubmitTrustSet(w http.ResponseWriter, r *http.Request) {
+	name := "ripple/submit-trust-set.html"
+	data := ripple.Handle(w, r, ripple.GetCommandSubmitTrustSet)
+	executeTemplate(w, name, data)
+}
+
 func init() {
 	registerTemplate(templates, "index.html")
 	registerTemplate(templates, "ripple/ping.html")
 	registerTemplate(templates, "ripple/account-info.html")
 	registerTemplate(templates, "ripple/account-lines.html")
+	registerTemplate(templates, "ripple/submit-trust-set.html")
 }
 
 func main() {
@@ -71,5 +78,6 @@ func main() {
 	http.HandleFunc("/ripple/ping", handleRipplePing)
 	http.HandleFunc("/ripple/account-info", handleRippleAccountInfo)
 	http.HandleFunc("/ripple/account-lines", handleRippleAccountLines)
+	http.HandleFunc("/ripple/submit-trust-set", handleRippleSubmitTrustSet)
 	http.ListenAndServe(":8080", nil)
 }

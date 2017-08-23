@@ -10,6 +10,39 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/agl/ed25519",
+			"repository": "https://github.com/agl/ed25519",
+			"vcs": "git",
+			"revision": "5312a61534124124185d41f09206b9fef1d88403",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/btcsuite/btcd/btcec",
+			"repository": "https://github.com/btcsuite/btcd",
+			"vcs": "git",
+			"revision": "47885ab8702485be6b6f87a03d4f3be0bc5c982c",
+			"branch": "master",
+			"path": "/btcec",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/fatih/color",
+			"repository": "https://github.com/fatih/color",
+			"vcs": "git",
+			"revision": "62e9147c64a1ed519147b62a56a14e83e2be02c1",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/golang/glog",
+			"repository": "https://github.com/golang/glog",
+			"vcs": "git",
+			"revision": "23def4e6c14b4da8ac2ed8007337bc5eb5007998",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/gorilla/websocket",
 			"repository": "https://github.com/gorilla/websocket",
 			"vcs": "git",
@@ -23,6 +56,39 @@
 			"vcs": "git",
 			"revision": "a0ff2567cfb70903282db057e799fd826784d41d",
 			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/rubblelabs/ripple",
+			"repository": "https://github.com/rubblelabs/ripple",
+			"vcs": "git",
+			"revision": "9deef6ffcc7731713d2d2c687795ffc335dad7e9",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/willf/bitset",
+			"repository": "https://github.com/willf/bitset",
+			"vcs": "git",
+			"revision": "988f4f24992fc745de53c42df0da6581e42a6686",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "golang.org/x/crypto/ripemd160",
+			"repository": "https://go.googlesource.com/crypto",
+			"vcs": "git",
+			"revision": "6914964337150723782436d56b3f21610a74ce7b",
+			"branch": "master",
+			"path": "/ripemd160",
+			"notests": true
+		},
+		{
+			"importpath": "gopkg.in/check.v1",
+			"repository": "https://gopkg.in/check.v1",
+			"vcs": "git",
+			"revision": "20d25e2804050c1cd24a7eea1e7a6447dd0e74ec",
+			"branch": "v1",
 			"notests": true
 		}
 	]
